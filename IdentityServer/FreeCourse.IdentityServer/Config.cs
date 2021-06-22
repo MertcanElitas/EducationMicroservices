@@ -13,6 +13,7 @@ namespace FreeCourse.IdentityServer
     {
 
         //Auth Server uygulamasının sorumlu olduğu resource’leri yani API’leri ifade eder.
+        //Test mertcan
         public static IEnumerable<ApiResource> ApiResources =>
                    new ApiResource[]
                    {
