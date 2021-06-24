@@ -2,4 +2,6 @@
 
 1-) FreeCourse.Catalog.Service => 5011
 2-) FreeCourse.Services.PhotoStock => 5012
+3-) Services.Basket => 5013
+
 3-)IdentityServer => 5001
