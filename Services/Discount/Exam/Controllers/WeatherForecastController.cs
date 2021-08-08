@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FreeCourse.Services.Catalog.Controllers
+namespace Exam.Controllers
 {
     [ApiController]
     [Route("[controller]")]

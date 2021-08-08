@@ -13,13 +13,16 @@ namespace FreeCourse.IdentityServer
     {
 
         //Auth Server uygulamasının sorumlu olduğu resource’leri yani API’leri ifade eder.
-        //Test mertcan
         public static IEnumerable<ApiResource> ApiResources =>
                    new ApiResource[]
                    {
                        new ApiResource("resource_catalog"){Scopes={"catalog_full_permission"}},
                        new ApiResource("resource_photostock"){Scopes={"photostock_full_permission"}},
                        new ApiResource("resource_basket"){Scopes={"basket_full_permission"}},
+                       new ApiResource("resource_discount"){Scopes={"discount_full_permission"}},
+                       new ApiResource("resource_order"){Scopes={"order_full_permission"}},
+                       new ApiResource("resource_fakepayment"){Scopes={"fakepayment_full_permission"}},
+                       new ApiResource("resource_gateway"){Scopes={"gateway_full_permission"}},
                        new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
                    };
 
@@ -40,6 +43,10 @@ namespace FreeCourse.IdentityServer
                 new ApiScope("catalog_full_permission","Catalog API için full erişim"),
                 new ApiScope("photostock_full_permission","Photo Stock API için full erişim"),
                 new ApiScope("basket_full_permission","Basket API için full erişim"),
+                new ApiScope("discount_full_permission","Discount API için full erişim"),
+                new ApiScope("order_full_permission","Order API için full erişim"),
+                new ApiScope("fakepayment_full_permission","Payment API için full erişim"),
+                new ApiScope("gateway_full_permission","Payment API için full erişim"),
                 new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
             };
 
@@ -54,7 +61,7 @@ namespace FreeCourse.IdentityServer
                     ClientName = "Asp.Net Core Mvc",
                     AllowedGrantTypes = GrantTypes.ClientCredentials, //Client Creadetials(Machine to Machine) kullanılacağı set edilmiş.
                     ClientSecrets = { new Secret("secret".Sha256()) },
-                    AllowedScopes = { "catalog_full_permission", "photostock_full_permission", IdentityServerConstants.LocalApi.ScopeName } //Yetkisi olduğu scope lar tanımlanmış.
+                    AllowedScopes = { "catalog_full_permission", "photostock_full_permission", "gateway_full_permission", IdentityServerConstants.LocalApi.ScopeName } //Yetkisi olduğu scope lar tanımlanmış.
                 },
                 new Client
                 {
@@ -64,6 +71,9 @@ namespace FreeCourse.IdentityServer
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                     ClientSecrets = { new Secret("secret".Sha256()) },
                     AllowedScopes = { "basket_full_permission",
+                        "discount_full_permission",
+                        "order_full_permission",
+                        "fakepayment_full_permission",
                         IdentityServerConstants.StandardScopes.Email,
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
