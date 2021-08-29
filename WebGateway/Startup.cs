@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebGateway.DelegateHandlers;
 
 namespace WebGateway
 {
@@ -25,6 +26,7 @@ namespace WebGateway
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpClient<TokenExchangeDelegateHandler>();
             services.AddAuthentication().AddJwtBearer("GatewayAuthenticationSchema", (options) =>
             {
                 options.Authority = _configuration["IdendityServerUrl"];
@@ -32,7 +34,7 @@ namespace WebGateway
                 options.RequireHttpsMetadata = false;
             });
 
-            services.AddOcelot();
+            services.AddOcelot().AddDelegatingHandler<TokenExchangeDelegateHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
