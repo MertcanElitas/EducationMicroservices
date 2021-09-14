@@ -27,6 +27,7 @@ namespace WebGateway
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpClient<TokenExchangeDelegateHandler>();
+
             services.AddAuthentication().AddJwtBearer("GatewayAuthenticationSchema", (options) =>
             {
                 options.Authority = _configuration["IdendityServerUrl"];
@@ -34,7 +35,7 @@ namespace WebGateway
                 options.RequireHttpsMetadata = false;
             });
 
-            services.AddOcelot().AddDelegatingHandler<TokenExchangeDelegateHandler>();
+            services.AddOcelot();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +48,7 @@ namespace WebGateway
 
             app.UseRouting();
 
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGet("/", async context =>
@@ -56,6 +58,8 @@ namespace WebGateway
             });
 
             await app.UseOcelot();
+
+
         }
     }
 }

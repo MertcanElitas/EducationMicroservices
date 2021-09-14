@@ -15,7 +15,7 @@ using static IdentityServer4.IdentityServerConstants;
 namespace FreeCourse.IdentityServer.Controllers
 {
     [Authorize(LocalApi.PolicyName)]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -54,6 +54,8 @@ namespace FreeCourse.IdentityServer.Controllers
                 return BadRequest();
 
             var user = await _userManager.FindByIdAsync(userIdClaim.Value);
+
+            if (user == null) return BadRequest();
 
             return Ok(new { Id = user.Id, UserName = user.UserName, Email = user.Email });
         }

@@ -1,7 +1,10 @@
 -) Services
 
-1-) FreeCourse.Catalog.Service => 5011
-2-) FreeCourse.Services.PhotoStock => 5012
-3-) Services.Basket => 5013
+1-) CatalogService => 5011
+2-) PhotoStockService => 5012
+3-) BasketService => 5013
+4-) PaymentService => 5016
+5-) OrderService => 5015
+6-) DiscountService => 5014
 
 3-)IdentityServer => 5001

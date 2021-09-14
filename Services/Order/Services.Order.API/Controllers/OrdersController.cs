@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Services.Order.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class OrdersController : CustomBaseController
     {

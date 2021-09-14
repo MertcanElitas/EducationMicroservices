@@ -63,13 +63,14 @@
       "UpstreamPathTemplate": "/services/discount/{everything}",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
       "UpstreamScheme": "http",
-      "DelegatingHandlers": [ "TokenExchangeDelegateHandler" ],
+      //"DelegatingHandlers": [ "TokenExchangeDelegateHandler" ],
       "AuthenticationOptions": {
-        "AuthenticationProviderKey": "GatewayAuthenticationSchema"
+        "AuthenticationProviderKey": "GatewayAuthenticationSchema",
+        "AllowedScopes": [ "discount_full_permission" ]
       }
     },
     {
-      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamPathTemplate": "/api/orders/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -77,7 +78,7 @@
           "Port": 5015
         }
       ],
-      "UpstreamPathTemplate": "/services/order/{everything}",
+      "UpstreamPathTemplate": "/services/orders/{everything}",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
       "UpstreamScheme": "http",
       "AuthenticationOptions": {

@@ -72,6 +72,8 @@ namespace FreeCourse.IdentityServer
                     ClientSecrets = { new Secret("secret".Sha256()) },
                     AllowedScopes = { "basket_full_permission",
                         "order_full_permission",
+                        "gateway_full_permission",
+                        "discount_full_permission",
                         IdentityServerConstants.StandardScopes.Email,
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,

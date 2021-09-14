@@ -46,7 +46,7 @@ namespace Services.Discount.Services
 
         public async Task<Response<Models.Discount>> GetByCodeAndUserId(string code, string userId)
         {
-            var discounts = await _dbConntection.QueryAsync<Models.Discount>("Select * From Where code=@Code and userid@UserId", new { Code = code, UserId = userId });
+            var discounts = await _dbConntection.QueryAsync<Models.Discount>("Select * From discount Where code=@Code and userid=@UserId", new { Code = code, UserId = userId });
 
             var model = discounts.FirstOrDefault();
 

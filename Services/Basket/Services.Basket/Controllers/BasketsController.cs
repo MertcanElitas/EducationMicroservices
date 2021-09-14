@@ -37,6 +37,7 @@ namespace Services.Basket.Controllers
         [HttpPost]
         public async Task<IActionResult> SaveOrUpdateBasket(BasketDto basketDto)
         {
+            basketDto.UserId = _identityService.GetUserId;
             var basket = await _basketService.SaveOrUpdate(basketDto);
 
             return CreateActionResultInstance(basket);

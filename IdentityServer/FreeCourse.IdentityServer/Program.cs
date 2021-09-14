@@ -55,8 +55,6 @@ namespace FreeCourse.IdentityServer
                     {
                         userManager.CreateAsync(new ApplicationUser() { UserName = "mertcan.elitas", Email = "mertcanelitas2@gmail.com" }, "Mertcan12.").Wait();
                     }
-
-
                 }
 
 
