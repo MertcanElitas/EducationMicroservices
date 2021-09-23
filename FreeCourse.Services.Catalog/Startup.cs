@@ -36,8 +36,8 @@ namespace FreeCourse.Services.Catalog
                 {
                     cfg.Host(Configuration["RabbitMQUrl"], "/", host =>
                     {
-                        host.Username("mail");
-                        host.Password("1q2w3e4r");
+                        host.Username("guest");
+                        host.Password("guest");
                     });
                 });
             });
