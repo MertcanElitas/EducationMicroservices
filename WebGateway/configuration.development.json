@@ -78,7 +78,7 @@
           "Port": 5015
         }
       ],
-      "UpstreamPathTemplate": "/services/orders/{everything}",
+      "UpstreamPathTemplate": "/services/order/{everything}",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
       "UpstreamScheme": "http",
       "AuthenticationOptions": {
@@ -98,9 +98,10 @@
       "UpstreamPathTemplate": "/services/fakepayment/{everything}",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
       "UpstreamScheme": "http",
-      "DelegatingHandlers": [ "TokenExchangeDelegateHandler" ],
+      //"DelegatingHandlers": [ "TokenExchangeDelegateHandler" ],
       "AuthenticationOptions": {
-        "AuthenticationProviderKey": "GatewayAuthenticationSchema"
+        "AuthenticationProviderKey": "GatewayAuthenticationSchema",
+        "AllowedScopes": [ "fakepayment_full_permission" ]
       }
     }
   ],

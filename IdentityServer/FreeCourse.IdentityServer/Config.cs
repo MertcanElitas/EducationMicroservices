@@ -74,6 +74,7 @@ namespace FreeCourse.IdentityServer
                         "order_full_permission",
                         "gateway_full_permission",
                         "discount_full_permission",
+                        "fakepayment_full_permission",
                         IdentityServerConstants.StandardScopes.Email,
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,

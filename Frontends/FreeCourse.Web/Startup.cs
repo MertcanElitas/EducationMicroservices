@@ -43,7 +43,8 @@ namespace FreeCourse.Web
             services.AddScoped<ClientCredentialTokenHandler>();
 
             services.AddHttpClientServices(Configuration);
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, opts =>
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, opts =>
              {
                  opts.LoginPath = "/Auth/SignIn";
                  opts.ExpireTimeSpan = TimeSpan.FromDays(60);
@@ -59,7 +60,8 @@ namespace FreeCourse.Web
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                app.UseExceptionHandler("/Home/Error");
+                //app.UseDeveloperExceptionPage();
             }
             else
             {

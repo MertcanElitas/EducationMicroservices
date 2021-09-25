@@ -13,7 +13,7 @@ namespace Services.Order.Application.Mapping
         {
             CreateMap<Domain.OrderAggregate.Order, OrderDto>().ReverseMap();
             CreateMap<Domain.OrderAggregate.OrderItem, OrderItemDto>().ReverseMap();
-            CreateMap<Domain.OrderAggregate.Adress, Adress>().ReverseMap();
+            CreateMap<Domain.OrderAggregate.Adress, AddressDto>().ReverseMap();
         }
     }
 }

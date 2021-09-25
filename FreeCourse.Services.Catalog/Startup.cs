@@ -49,7 +49,9 @@ namespace FreeCourse.Services.Catalog
             services.AddScoped<IMongoInstanceHelper, MongoInstanceHelper>();
 
             services.AddAutoMapper(typeof(Startup));
-            services.AddControllers(x=> {
+            //services.AddControllers();
+            services.AddControllers(x =>
+            {
                 x.Filters.Add(new AuthorizeFilter());
             });
 

@@ -30,12 +30,12 @@ namespace Services.FakePayment.Controllers
 
             var createOrderMessageCommand = new CreateOrderMessageCommand()
             {
-                BuyerId = paymentDto.BuyerId,
-                Province = paymentDto.Province,
-                District = paymentDto.District,
-                Street = paymentDto.Street,
-                Line = paymentDto.Line,
-                ZipCode = paymentDto.ZipCode
+                BuyerId = paymentDto.Order.BuyerId,
+                Province = paymentDto.Order.Address.Province,
+                District = paymentDto.Order.Address.District,
+                Street = paymentDto.Order.Address.Street,
+                Line = paymentDto.Order.Address.Line,
+                ZipCode = paymentDto.Order.Address.ZipCode
             };
 
             paymentDto.Order.OrderItems.ForEach(x =>
