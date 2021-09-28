@@ -44,7 +44,7 @@ namespace WebGateway.DelegateHandlers
                 ClientSecret = _configuration["ClientSecret"],
                 GrantType = _configuration["TokenGrantType"],
                 SubjectToken = requestToken,
-                SubjectTokenType = "urn:ietf:params:outh:token-type:access-token",
+                SubjectTokenType = "urn:ietf:params:oauth:token-type:access-token",
                 Scope = "openid discount_full_permission, fakepayment_full_permission"
             };
 

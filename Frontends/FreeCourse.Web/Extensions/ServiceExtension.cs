@@ -16,6 +16,7 @@ namespace FreeCourse.Web.Extensions
         public static void AddHttpClientServices(this IServiceCollection services, IConfiguration Configuration)
         {
             var serviceApiSettings = Configuration.GetSection("ServiceApiSettings").Get<ServiceApiSettings>();
+
             services.AddHttpClient<IClientCredentialTokenService, ClientCredentialTokenService>();
             services.AddHttpClient<IIdentityService, IdentityService>();
 

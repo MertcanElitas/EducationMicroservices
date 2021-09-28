@@ -49,7 +49,7 @@ namespace FreeCourse.Web
                  opts.LoginPath = "/Auth/SignIn";
                  opts.ExpireTimeSpan = TimeSpan.FromDays(60);
                  opts.SlidingExpiration = true;
-                 opts.Cookie.Name = "udemywebcookie";
+                 opts.Cookie.Name = "educationwebcookie";
              });
 
             services.AddControllersWithViews().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CourseCreateInputValidator>());

@@ -73,8 +73,8 @@ namespace FreeCourse.IdentityServer
                     AllowedScopes = { "basket_full_permission",
                         "order_full_permission",
                         "gateway_full_permission",
-                        "discount_full_permission",
-                        "fakepayment_full_permission",
+                        //"discount_full_permission",
+                        //"fakepayment_full_permission",
                         IdentityServerConstants.StandardScopes.Email,
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
@@ -88,10 +88,10 @@ namespace FreeCourse.IdentityServer
                 },
                 new Client
                 {
-                    ClientId = "Token Exchange Client",
-                    ClientName = "TokenExchangeClient",
+                    ClientName = "Token Exchange Client",
+                    ClientId = "TokenExchangeClient",
                     ClientSecrets = { new Secret("secret".Sha256()) },
-                    AllowedGrantTypes =new []{ "urn:ietf:params:outh:grant-type:token-exchange" }, //Client Creadetials(Machine to Machine) kullanılacağı set edilmiş.
+                    AllowedGrantTypes =new []{ "urn:ietf:params:oauth:grant-type:token-exchange" }, //Client Creadetials(Machine to Machine) kullanılacağı set edilmiş.
                     AllowedScopes = { "discount_full_permission", "fakepayment_full_permission", IdentityServerConstants.StandardScopes.OpenId } //Yetkisi olduğu scope lar tanımlanmış.
                 }
             };
