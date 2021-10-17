@@ -17,18 +17,18 @@ namespace FreeCourse.Services.PhotoStock.Controllers
     public class PhotosController : CustomBaseController
     {
         [HttpPost]
-        public async Task<IActionResult> PhotoSave(IFormFile formFile, CancellationToken cancellationToken)
+        public async Task<IActionResult> PhotoSave(IFormFile photo, CancellationToken cancellationToken)
         {
-            if (formFile == null || formFile.Length > 0)
+            if (photo != null || photo.Length > 0)
             {
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/photos", formFile.FileName);
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/photos", photo.FileName);
 
                 using (var stream = new FileStream(path, FileMode.Create))
                 {
-                    await formFile.CopyToAsync(stream, cancellationToken);
+                    await photo.CopyToAsync(stream, cancellationToken);
                 }
 
-                var returnPath = "photos/" + formFile.FileName;
+                var returnPath = photo.FileName;
 
                 var dto = new PhotoDto() { Url = returnPath };
 

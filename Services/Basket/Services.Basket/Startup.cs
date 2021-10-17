@@ -36,7 +36,8 @@ namespace Services.Basket
 
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("sub");
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(option =>
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                    .AddJwtBearer(option =>
             {
                 option.Authority = Configuration["IdendityServerUrl"];
                 option.Audience = "resource_basket";
